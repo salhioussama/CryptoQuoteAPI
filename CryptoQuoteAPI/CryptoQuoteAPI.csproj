@@ -1,7 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageId>CryptoQuoteAPI</PackageId>
+    <Version>1.0.1</Version>
+    <Authors>Oussama SALHI</Authors>
+    <Product />
+    <Company />
+    <Description>This project provides an API to request quotations from different crypto exchanges.
+
+Only huobi is availabe right now.</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
 
 </Project>

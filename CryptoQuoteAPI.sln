@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoQuoteAPI", "CryptoQuoteAPI\CryptoQuoteAPI.csproj", "{8DAF6296-36A1-4E74-843E-17C9B00B92D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{75E4246B-6541-40D4-82D0-B55451411457}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8DAF6296-36A1-4E74-843E-17C9B00B92D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DAF6296-36A1-4E74-843E-17C9B00B92D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DAF6296-36A1-4E74-843E-17C9B00B92D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E4246B-6541-40D4-82D0-B55451411457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E4246B-6541-40D4-82D0-B55451411457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E4246B-6541-40D4-82D0-B55451411457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E4246B-6541-40D4-82D0-B55451411457}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
