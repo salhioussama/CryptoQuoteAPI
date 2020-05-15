@@ -11,10 +11,16 @@ This Nuget project can be added to your C# solutions to call crypto currencies A
 1. Go to NuGet manager and search for CryptoQuoteAPI.
 2. Install the last version.
 
-Command line installation:
+Package Manager installation:
 ```PowerShell
 Install-Package CryptoQuoteAPI
 ```
+
+.NET CLI installation:
+```PowerShell
+dotnet add package CryptoQuoteAPI
+```
+
 
 ## Example code
 
