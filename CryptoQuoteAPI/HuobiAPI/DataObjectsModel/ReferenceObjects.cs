@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 
 namespace CryptoQuote.HuobiAPI.DataObjectsModel
 {
+    /// <summary>
+    /// Class to format data coming from GetAllSymbols request.
+    /// </summary>
     [JsonObject(NamingStrategyType = typeof(Newtonsoft.Json.Serialization.CamelCaseNamingStrategy))]
     public class TradingSymbol
     {
@@ -42,6 +45,9 @@ namespace CryptoQuote.HuobiAPI.DataObjectsModel
         public short? LeverageRatio { get; set; }
     }
 
+    /// <summary>
+    /// Class to format data coming from GetCcyReferenceInfo request.
+    /// </summary>
     [JsonObject(NamingStrategyType = typeof(Newtonsoft.Json.Serialization.CamelCaseNamingStrategy))]
     public class CcyReferenceInfo
     {
@@ -52,6 +58,9 @@ namespace CryptoQuote.HuobiAPI.DataObjectsModel
         public string InstStatus { get; set; }
     }
 
+    /// <summary>
+    /// Definition of a chain info.
+    /// </summary>
     public class ChainReferenceInfo
     {
         [JsonProperty("chain")]

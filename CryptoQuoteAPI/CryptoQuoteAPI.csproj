@@ -8,13 +8,33 @@
     <Authors>Oussama SALHI</Authors>
     <Product />
     <Company />
-    <Description>This project provides an API to request quotations from different crypto exchanges.
+    <Description>C# librairie to call crypto currencies exchanges and get quotations data
+Currently, only Huobi API is implemented.</Description>
+    <PackageProjectUrl>https://github.com/salhioussama/CryptoQuoteAPI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/salhioussama/CryptoQuoteAPI</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>cryptocurrencies</PackageTags>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+  </PropertyGroup>
 
-Only huobi is availabe right now.</Description>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>Doc\CryptoQuoteAPI.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Doc\CryptoQuoteAPI.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Doc\" />
   </ItemGroup>
 
 </Project>

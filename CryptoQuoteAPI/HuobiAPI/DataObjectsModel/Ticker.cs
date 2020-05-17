@@ -4,6 +4,9 @@ using System.Numerics;
 
 namespace CryptoQuote.HuobiAPI.DataObjectsModel
 {
+    /// <summary>
+    /// Class to format data coming from GetTickerHistory, GetAllPairsLatestTickers and GetLastMarketSummary requests.
+    /// </summary>
     [JsonObject(NamingStrategyType = typeof(Newtonsoft.Json.Serialization.CamelCaseNamingStrategy))]
     public class Ticker
     {
@@ -19,6 +22,9 @@ namespace CryptoQuote.HuobiAPI.DataObjectsModel
         public string Symbol { get; set; }
     }
 
+    /// <summary>
+    /// Class to format data coming from GetLatestAggregatedTicker request.
+    /// </summary>
     [JsonObject(NamingStrategyType = typeof(Newtonsoft.Json.Serialization.CamelCaseNamingStrategy))]
     public class TickerAggregated : Ticker
     {

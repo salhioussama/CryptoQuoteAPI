@@ -4,6 +4,9 @@ using Newtonsoft.Json;
 
 namespace CryptoQuote.HuobiAPI.DataObjectsModel
 {
+    /// <summary>
+    /// Class to format data coming from GetMarketDepth request.
+    /// </summary>
     [JsonObject(NamingStrategyType = typeof(Newtonsoft.Json.Serialization.CamelCaseNamingStrategy))]
     public class MarketDepth
     {

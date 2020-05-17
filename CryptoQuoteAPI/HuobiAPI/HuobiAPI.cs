@@ -9,6 +9,7 @@ namespace CryptoQuote.HuobiAPI
     public abstract class HuobiAPI
     {
         #region constant configurations
+
         protected const string SignatureMethod = "HmacSHA256";
         protected const string SignatureVersion = "2";
 

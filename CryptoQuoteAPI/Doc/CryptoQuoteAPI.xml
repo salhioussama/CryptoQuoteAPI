@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CryptoQuoteAPI</name>
+    </assembly>
+    <members>
+        <member name="T:CryptoQuote.HuobiAPI.DataObjectsModel.TickerPeriod">
+            <summary>
+            Ticker period enumeration to simplify period choice.
+            Availabe choices: min 1, 5, 15, 30, 60 - hour 4 - day 1 - month 1 - week 1 and year 1.
+            </summary>
+        </member>
+        <member name="T:CryptoQuote.HuobiAPI.DataObjectsModel.DataObjectsModelEnumExtensions">
+            <summary>
+            Extension class to transform some enumerations to their exchange equivalent values.
+            </summary>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.DataObjectsModel.DataObjectsModelEnumExtensions.ToParamValue(CryptoQuote.HuobiAPI.DataObjectsModel.TickerPeriod)">
+            <summary>
+            Represent the equivalence of TickerPeriod enumeration used solely when communicating with exchange server.
+            </summary>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.DataObjectsModel.DataObjectsModelEnumExtensions.ToParamValue(CryptoQuote.HuobiAPI.DataObjectsModel.AggregationLevel)">
+            <summary>
+            Represent the equivalence of AggregationLevel enumeration used solely when communicating with exchange server.
+            </summary>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.DataObjectsModel.DataObjectsModelEnumExtensions.ToParamValue(System.Nullable{CryptoQuote.HuobiAPI.DataObjectsModel.Depth})">
+            <summary>
+            Represent the equivalence of Depth enumeration used solely when communicating with exchange server.
+            </summary>
+        </member>
+        <member name="T:CryptoQuote.HuobiAPI.DataObjectsModel.AggregationLevel">
+            <summary>
+            Aggregation level enumeration.
+            Availabe choices: Step0, Step1, Step2, Step3, Step4, Step5.
+            </summary>
+        </member>
+        <member name="T:CryptoQuote.HuobiAPI.DataObjectsModel.Depth">
+            <summary>
+            Depth enumeration.
+            Availabe choices: 5, 10, 20, 150.
+            </summary>
+        </member>
+        <member name="T:CryptoQuote.HuobiAPI.DataObjectsModel.MarketDepth">
+            <summary>
+            Class to format data coming from GetMarketDepth request.
+            </summary>
+        </member>
+        <member name="T:CryptoQuote.HuobiAPI.DataObjectsModel.TradingSymbol">
+            <summary>
+            Class to format data coming from GetAllSymbols request.
+            </summary>
+        </member>
+        <member name="T:CryptoQuote.HuobiAPI.DataObjectsModel.CcyReferenceInfo">
+            <summary>
+            Class to format data coming from GetCcyReferenceInfo request.
+            </summary>
+        </member>
+        <member name="T:CryptoQuote.HuobiAPI.DataObjectsModel.ChainReferenceInfo">
+            <summary>
+            Definition of a chain info.
+            </summary>
+        </member>
+        <member name="T:CryptoQuote.HuobiAPI.DataObjectsModel.Ticker">
+            <summary>
+            Class to format data coming from GetTickerHistory, GetAllPairsLatestTickers and GetLastMarketSummary requests.
+            </summary>
+        </member>
+        <member name="T:CryptoQuote.HuobiAPI.DataObjectsModel.TickerAggregated">
+            <summary>
+            Class to format data coming from GetLatestAggregatedTicker request.
+            </summary>
+        </member>
+        <member name="T:CryptoQuote.HuobiAPI.DataObjectsModel.Trade">
+            <summary>
+            Single definition of a Trade.
+            </summary>
+        </member>
+        <member name="T:CryptoQuote.HuobiAPI.DataObjectsModel.TradesAggregated">
+            <summary>
+            Class to format data coming from GetLatestTrade and GetMostRecentTrades requests.
+            </summary>
+        </member>
+        <member name="T:CryptoQuote.HuobiAPI.HuobiAPI">
+            <summary>
+            Abstract class serving as a base class for Rest and WebSocket API.
+            It contains all the necessary constants to communicate with Huobi servers 
+            </summary>
+        </member>
+        <member name="P:CryptoQuote.HuobiAPI.HuobiAPI.UseAwsUri">
+            <value>Define if Huobi's aws server should be used.</value>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.HuobiAPI.#ctor(System.Boolean,System.String,System.String)">
+            <summary>
+            Initialize the API Object.
+            </summary>
+            <param name="UseAws">Specify whether Huobi's aws server should be used.</param>
+            <param name="read_key">Personal access key generated in Huobi API management.</param>
+            <param name="read_secret">Personal secret key generated in Huobi API management.</param>
+        </member>
+        <member name="T:CryptoQuote.HuobiAPI.Rest">
+            <summary>
+            Rest API class handling communication with Huobi server to get access to all needed information.
+            The requirements have been gathered from Huobi API documentation: https://huobiapi.github.io/docs/spot/v1/en/
+            </summary>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.FormatUri(System.String,System.Net.Http.HttpMethod,System.Collections.Generic.SortedDictionary{System.String,System.String},System.String,System.String)">
+            <summary>
+            Format the uri to use to request data from the Exchange as specified in https://huobiapi.github.io/docs/spot/v1/en/#access-and-authentication.
+            </summary>
+            <param name="uri_path">Uri path</param>
+            <param name="method">The method to use (GET or POST).</param>
+            <param name="parameters">All the necessary uri parameters.</param>
+            <param name="access_key">Personal access key to use to identify the user.</param>
+            <param name="secret_key">Personal secret key to use to create the signature.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.GetUriSignature(System.Net.Http.HttpMethod,System.String,System.String,System.String,System.String)">
+            <summary>
+            Sign the request as specified in https://huobiapi.github.io/docs/spot/v1/en/#access-and-authentication.
+            </summary>
+            <param name="method">The method to use (GET or POST).</param>
+            <param name="host">Hotsname.</param>
+            <param name="path">Uri path.</param>
+            <param name="query">Uri parameters.</param>
+            <param name="secret_key">Personal secret key to use to create the signature.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.HttpGetRequest(System.Uri)">
+            <summary>
+            Common implementation of http get request to communicate with exchange servers.
+            </summary>
+            <param name="uri">The final Uri to use to query information from Exchange's servers.</param>
+            <returns>Returns received json file.</returns>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.JsonParse``1(System.String,System.String)">
+            <summary>
+            Parse the json response into the correct HuobiAPI.DataObjectsModel <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">HuobiAPI.DataObjectsModel expected as output.</typeparam>
+            <param name="json">The json response received from the Exchange server.</param>
+            <param name="node_path">The node name where the final data are.</param>
+            <returns>The requested DataObjectsModel <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.GetAllSymbols">
+            <summary>
+            Returns all Huobi's supported trading symbol.
+            Implements end point https://api.huobi.pro/v1/common/symbols
+            </summary>
+            <returns>List of TradingSymbol objects representing all Huobi's supported trading symbol. </returns>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.GetAllCurrencies">
+            <summary>
+            Returns all Huobi's supported trading currencies.
+            Implements end point https://api.huobi.pro/v1/common/currencys
+            </summary>
+            <returns>List of string representing all Huobi's supported trading currencies. </returns>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.GetCcyReferenceInfo(System.String,System.Nullable{System.Boolean})">
+            <summary>
+            Query static reference information for each currency, as well as its corresponding chain(s).
+            Implements end point https://api.huobi.pro/v2/reference/currencies
+            </summary>
+            <param name="ccy">Available currencies in Huobi Global: btc, ltc, bch, eth, etc ...</param>
+            <param name="authorizedUser">true or false (if not filled, default value is true)</param>
+            <returns>List of CcyReferenceInfo objects</returns>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.GetTimestamp">
+            <summary>
+            Retrieves the current timestamp, i.e. the number of milliseconds that have elapsed since 00:00:00 UTC on 1 January 1970.
+            Implements end point https://api.huobi.pro/v1/common/timestamp
+            </summary>
+            <returns>The timestamp as int64</returns>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.GetTickerHistory(System.String,CryptoQuote.HuobiAPI.DataObjectsModel.TickerPeriod,System.Nullable{System.Int32})">
+            <summary>
+            Retrieves all klines in a specific range.
+            Implements end point https://api.huobi.pro/market/history/kline
+            </summary>
+            <param name="symbol">The trading symbol to query</param>
+            <param name="period">The period of each candle</param>
+            <param name="size">The number of data returns. It should be in the range [1, 2000]</param>
+            <returns>List of Ticker objects</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when size is not in range [1, 2000]</exception>
+            <exception cref="T:System.ArgumentException">Thrown when symbol is empty or null</exception>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.GetLatestAggregatedTicker(System.String)">
+            <summary>
+            Retrieves the latest ticker with some important 24h aggregated market data.
+            Implements end point https://api.huobi.pro/market/detail/merged
+            </summary>
+            <param name="symbol">The trading symbol to query</param>
+            <returns>TickerAggregated object</returns>
+            <exception cref="T:System.ArgumentException">Thrown when symbol is empty or null</exception>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.GetAllPairsLatestTickers">
+            <summary>
+            Retrieves the latest tickers for all supported pairs.
+            Implements end point https://api.huobi.pro/market/tickers"
+            </summary>
+            <returns>List of Ticker objects</returns>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.GetMarketDepth(System.String,CryptoQuote.HuobiAPI.DataObjectsModel.AggregationLevel,System.Nullable{CryptoQuote.HuobiAPI.DataObjectsModel.Depth})">
+            <summary>
+            Retrieves the current order book of a specific pair.
+            Implements end point https://api.huobi.pro/market/depth
+            </summary>
+            <param name="symbol">The trading symbol to query</param>
+            <param name="level">Market depth aggregation level.
+            <para>step0: No market depth aggregation</para>
+            <para>step1: Aggregation level = precision*10</para>
+            <para>step2: Aggregation level = precision*100</para>
+            <para>step3: Aggregation level = precision*1000</para>
+            <para>step4: Aggregation level = precision*10000</para>
+            <para>step5: Aggregation level = precision*100000</para>
+            </param>
+            <param name="depth">The number of market depth to return on each side</param>
+            <returns>MarketDepth object</returns>
+            <exception cref="T:System.ArgumentException">Thrown when symbol is empty or null</exception>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.GetLatestTrade(System.String)">
+            <summary>
+            Retrieves the latest trade with its price, volume, and direction.
+            Implements end point https://api.huobi.pro/market/trade
+            </summary>
+            <param name="symbol">The trading symbol to query</param>
+            <returns>Trade object</returns>
+            /// <exception cref="T:System.ArgumentException">Thrown when symbol is empty or null</exception>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.GetMostRecentTrades(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Retrieves the most recent trades with their price, volume, and direction.
+            Implements end point https://api.huobi.pro/market/history/trade
+            </summary>
+            <param name="symbol">The trading symbol to query</param>
+            <param name="size">The number of data returns. It should be in the range [1, 2000]</param>
+            <returns>List of Ticker objects</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when size is not in range [1, 2000]</exception>
+            <exception cref="T:System.ArgumentException">Thrown when symbol is empty or null</exception>
+        </member>
+        <member name="M:CryptoQuote.HuobiAPI.Rest.GetLastMarketSummary(System.String)">
+            <summary>
+            Retrieves the summary of trading in the market for the last 24 hours.
+            Implements end point https://api.huobi.pro/market/detail/
+            </summary>
+            <param name="symbol">The trading symbol to query</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">Thrown when symbol is empty or null</exception>
+        </member>
+    </members>
+</doc>

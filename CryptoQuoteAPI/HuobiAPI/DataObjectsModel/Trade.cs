@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 
 namespace CryptoQuote.HuobiAPI.DataObjectsModel
 {
+    /// <summary>
+    /// Single definition of a Trade.
+    /// </summary>
     [JsonObject(NamingStrategyType = typeof(Newtonsoft.Json.Serialization.CamelCaseNamingStrategy))]
     public class Trade
     {
@@ -20,6 +23,9 @@ namespace CryptoQuote.HuobiAPI.DataObjectsModel
         public string Direction { get; set; }
     }
 
+    /// <summary>
+    /// Class to format data coming from GetLatestTrade and GetMostRecentTrades requests.
+    /// </summary>
     [JsonObject(NamingStrategyType = typeof(Newtonsoft.Json.Serialization.CamelCaseNamingStrategy))]
     public class TradesAggregated
     {
